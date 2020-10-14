@@ -4,9 +4,9 @@ sys.path.append('../..')
 import torch
 from torch.optim import Adam
 
-from fastNLP.core.callback import Callback, GradientClipCallback
+# 下面两个还没有看 20201014
+from fastNLP.core.callback import Callback, GradientClipCallback 
 from fastNLP.core.trainer import Trainer
-
 from fastNLP.io.pipe.coreference import CoReferencePipe
 from fastNLP.core.const import Const
 
@@ -30,15 +30,15 @@ class LRCallback(Callback):
 
 if __name__ == "__main__":
     config = Config()
-
     print(config)
 
     def cache():
         bundle = CoReferencePipe(config).process_from_file({'train': config.train_path, 'dev': config.dev_path,
                                                             'test': config.test_path})
         return bundle
-    data_bundle = cache()
+    data_bundle = cache() 
     print(data_bundle)
+    
     model = Model(data_bundle.get_vocab(Const.INPUTS(0)), config)
     print(model)
 
@@ -58,5 +58,4 @@ if __name__ == "__main__":
                       save_path=None,
                       callbacks=[lr_decay_callback, GradientClipCallback(clip_value=5)])
     print()
-
     trainer.train()
