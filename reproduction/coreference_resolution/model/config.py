@@ -39,7 +39,7 @@ class Config():
 
 
     # decay = 1e-5
-
+    # 打印用
     def __str__(self):
         d = self.__dict__
         out = 'config==============\n'
