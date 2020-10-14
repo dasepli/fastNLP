@@ -112,6 +112,11 @@ class CoReferencePipe(Pipe):
         return data_bundle
 
     def process_from_file(self, paths):
+        '''
+        example: 
+        bundle = CoReferencePipe(config).process_from_file({'train': config.train_path, 'dev': config.dev_path,
+                                                    'test': config.test_path})
+        '''
         bundle = CoReferenceLoader().load(paths)
         return self.process(bundle)
 
