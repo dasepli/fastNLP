@@ -6,8 +6,8 @@ __all__ = [
 
 from ...core.dataset import DataSet
 from ..file_reader import _read_json
-from ...core.instance import Instance
-from ...core.const import Const
+from ...core.instance import Instance 
+from ...core.const import Const # fastNLP包当中的field命名均符合一定的规范，该规范由fastNLP.Const类进行定义;
 from .json import JsonLoader
 
 
@@ -41,7 +41,6 @@ class CoReferenceLoader(JsonLoader):
         r"""
         加载数据
         :param path: 数据文件路径，文件为json
-
         :return:
         """
         dataset = DataSet()
@@ -55,10 +54,7 @@ class CoReferenceLoader(JsonLoader):
 
     def download(self):
         r"""
-        由于版权限制，不能提供自动下载功能。可参考
-
-        https://www.aclweb.org/anthology/W12-4501
-
+        由于版权限制，不能提供自动下载功能。可参考 https://www.aclweb.org/anthology/W12-4501
         :return:
         """
         raise RuntimeError("CoReference cannot be downloaded automatically.")
